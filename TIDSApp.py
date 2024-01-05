@@ -1,20 +1,37 @@
-# pip install PyQt5
+""" In order for the application to run without errors, the following libraries must be installed.
+    - PyQt5
+    - SpeechRecognition
+    - requests
+    - Pillow
+        
+    pip install PyQt5
+    pip install SpeechRecognition
+    pip install requests
+"""
+import os
 from PyQt5.QtWidgets import (
     QMainWindow as main_window,
     QApplication as application,
 )
 
+
 from core.appManager import AppManager
 from entity.word import Word
-from ui.tids_ui import Ui_MainWindow as ui_main_window
-import os
+from ui.tisd_ui import Ui_MainWindow as ui_main_window
 
 
 class TIDSApp(ui_main_window, main_window):
+    """Türkçe İşaret Dili Sözlüğü
+
+    Args:
+        ui_main_window (ui_main_window): UI
+        main_window (main_window): QT framework
+    """
     ##################################################################
     # * --------------------------------------------------------------
     # * * * * * * * * * * * *  CONSTRUCTOR  * * * * * * * * * * * * *
     # * --------------------------------------------------------------
+
     def __init__(self) -> None:
         """
         Purpose: Constructor
@@ -28,7 +45,8 @@ class TIDSApp(ui_main_window, main_window):
 
     def init_ui(self) -> None:
         """
-        Initializes the user interface by creating an instance of the `ui_main_window` class and setting up the UI. 
+        Initializes the user interface by creating an instance of 
+        the `ui_main_window` class and setting up the UI. 
 
         Parameters:
             self (object): The current instance of the class.
@@ -108,12 +126,13 @@ class TIDSApp(ui_main_window, main_window):
             for word in self.apman.managers.word.get_all()
             if " " in word.name]
 
+        sentece_fix: str = " ".join(words_in_sentence)
         index: int = 0
         while index < len(words_in_sentence):
             word: str = words_in_sentence[index]
             idiom_added = False
             for idiom in idiom_words:
-                if idiom.name in sentence:
+                if idiom.name in sentece_fix:
                     idiom_name_split: list[str] = idiom.name.split()
                     idiom_name_letter_count: int = len(idiom_name_split)
                     if words_in_sentence[index:index+idiom_name_letter_count] == idiom_name_split:
@@ -201,7 +220,11 @@ class TIDSApp(ui_main_window, main_window):
         """
         Handle the event when an item is changed in the lw_tutarial_page_word_list.
 
-        This function is called when an item in the lw_tutarial_page_word_list is changed. It retrieves the selected item and its corresponding information from the UI elements. If a valid item is selected, it retrieves the Word object associated with the selected item from the word manager. It then updates the UI elements with the retrieved information. If no valid item is selected, it clears the UI elements.
+        This function is called when an item in the lw_tutarial_page_word_list is changed.
+        It retrieves the selected item and its corresponding information from the UI elements. 
+        If a valid item is selected, it retrieves the Word object associated with the selected item from the word manager. 
+        It then updates the UI elements with the retrieved information. 
+        If no valid item is selected, it clears the UI elements.
 
         Parameters:
             self (MainWindow): The instance of the MainWindow class.
@@ -271,10 +294,24 @@ class TIDSApp(ui_main_window, main_window):
         btn_translate.setEnabled(bool(txt_words.toPlainText()))
 
     def txt_tutarial_page_word_search_changed(self) -> None:
+        """
+        A function that handles the event when the word search in the tutorial page is changed.
+
+        This function is triggered when the user changes the search term in the tutorial page. 
+        It first fills the word list with the search results by calling the `fill_words()` method. 
+        Then, it resets the current row in the list widget `lw_ogretici_kelime_listesi` by setting it to -1. 
+        If any exception occurs during the execution of this function, it is caught and ignored.
+
+        Parameters:
+            self: The instance of the class.
+
+        Returns:
+            None
+        """
         try:
             self.fill_words()
             self.ui.lw_ogretici_kelime_listesi.setCurrentRow(-1)
-        except Exception:
+        except ValueError:
             pass
 
     ##################################################################
@@ -349,6 +386,8 @@ class TIDSApp(ui_main_window, main_window):
 if __name__ == "__main__":
     import sys
     app = application([])
+    os.environ["QT_STYLE_OVERRIDE"] = "kvantum"
+    os.environ["KVANTUM_THEME"] = "<kvantum_theme_directory>"
     win = TIDSApp()
     win.show()
     sys.exit(app.exec_())
