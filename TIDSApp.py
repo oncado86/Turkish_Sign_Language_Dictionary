@@ -17,7 +17,7 @@ from PyQt5.QtWidgets import (
 
 from core.appManager import AppManager
 from entity.word import Word
-from ui.tisd_ui import Ui_MainWindow as ui_main_window
+from ui.tids_ui import Ui_MainWindow as ui_main_window
 
 
 class TIDSApp(ui_main_window, main_window):
