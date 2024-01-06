@@ -386,8 +386,6 @@ class TIDSApp(ui_main_window, main_window):
 if __name__ == "__main__":
     import sys
     app = application([])
-    os.environ["QT_STYLE_OVERRIDE"] = "kvantum"
-    os.environ["KVANTUM_THEME"] = "<kvantum_theme_directory>"
     win = TIDSApp()
     win.show()
     sys.exit(app.exec_())
