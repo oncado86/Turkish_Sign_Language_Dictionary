@@ -7,6 +7,7 @@
     pip install PyQt5
     pip install SpeechRecognition
     pip install requests
+    pip install pillow
 """
 import os
 from PyQt5.QtWidgets import (
