@@ -1,13 +1,29 @@
+"""The speechRecognition module provides a class for speech recognition using the Google Speech Recognition API.
+
+
+@category: Utilities
+
 # pip install SpeechRecognition
 # pip install requests
+"""
 import speech_recognition as sr  # type: ignore
 import requests
 
 
 class SpeechRecognition:
-    def __init__(self) -> None:
-        #
-        pass
+    """
+    The SpeechRecognition class provides a method for speech recognition using the Google Speech Recognition API. 
+    Here is a summary of each class method:
+
+    - recognize_speech: Recognizes speech using the Google Speech Recognition API. 
+    It returns a tuple with a boolean value indicating success or failure of speech recognition, and a string representing the recognized speech. 
+    It can raise UnknownValueError if the speech cannot be understood, or RequestError if there is an error with the speech recognition request.
+
+    - __is_connect_internet: Checks if the device is connected to the internet. 
+    It returns a boolean value indicating whether the device is connected to the internet or not.
+
+    @category: Utilities
+    """
 
     def recognize_speech(self) -> tuple[bool, str]:
         """
@@ -21,6 +37,8 @@ class SpeechRecognition:
             UnknownValueError: If the speech cannot be understood.
             RequestError: If there is an error with the speech recognition request.
 
+
+        @category: Utilities
         """
         r = sr.Recognizer()
 
@@ -32,7 +50,8 @@ class SpeechRecognition:
             audio = r.listen(source)  # type: ignore
 
         try:
-            text: str = r.recognize_google(audio, language="tr-TR")  # type: ignore
+            text: str = r.recognize_google(
+                audio, language="tr-TR")  # type: ignore
             print("Metin:", text)  # type: ignore
             return True, text
         except sr.UnknownValueError:
