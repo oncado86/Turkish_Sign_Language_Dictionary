@@ -1,4 +1,4 @@
-<h1 align="center"> Turkish Sign Language Dictionary </h1>
+<h1> Turkish Sign Language Dictionary </h1>
 <div align="left" width="100%">
 
 <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/oncado86/Turkish_Sign_Language_Dictionary?label=Commit%20Activity&style=plastic">
