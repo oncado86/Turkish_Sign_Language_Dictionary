@@ -1,13 +1,32 @@
+"""This module contains the Word class.
+
+@category: Entities
+"""
+
+
 class Word:
-    def __init__(self) -> None:
-        """
-            Initializes the object with default values for the following attributes:
-            
+    """Initializes the object with default values for the following attributes:
+
             - __id: int - The unique identifier of the object (default: 0).
             - __name: str - The name of the object (default: "").
             - __img_path: str - The path to the image associated with the object (default: "").
             - __howdo: str - A description of how to use the object (default: "").
             - __info: str - Additional information about the object (default: "").
+
+        @category: Entities
+    """
+
+    def __init__(self) -> None:
+        """
+            Initializes the object with default values for the following attributes:
+
+            - __id: int - The unique identifier of the object (default: 0).
+            - __name: str - The name of the object (default: "").
+            - __img_path: str - The path to the image associated with the object (default: "").
+            - __howdo: str - A description of how to use the object (default: "").
+            - __info: str - Additional information about the object (default: "").
+
+        @category: Entities
         """
         self.__id: int = 0
         self.__name: str = ""
@@ -16,11 +35,10 @@ class Word:
 
     @property
     def id(self) -> int:
-        """
-        Returns the ID of the object.
+        """Returns the value of the `id` property.
 
-        :return: An integer representing the ID of the object.
-        :rtype: int
+        Returns:
+            int: An integer representing the id.
         """
         return self.__id
 
@@ -42,8 +60,8 @@ class Word:
         """
         Get the name property.
 
-        :return: The name property as a string.
-        :rtype: str
+        Returns:
+            str: The name property as a string.
         """
         return self.__name
 
@@ -65,8 +83,8 @@ class Word:
         """
         Returns the image path.
 
-        :return: A string representing the image path.
-        :rtype: str
+        Returns:
+        str: A string representing the image path.
         """
         return self.__img_path
 
@@ -88,8 +106,8 @@ class Word:
         """
         Returns the `info` property of the class.
 
-        :return: The value of the `info` property as a string.
-        :rtype: str
+        Returns:
+        str: The value of the `info` property as a string.
         """
         return self.__info
 
