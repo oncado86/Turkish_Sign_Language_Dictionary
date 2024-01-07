@@ -43,7 +43,7 @@ class ShowMessageBox:
         @category: Utilities
         """
         mb = message_box()
-        mb.setIcon(mb.Critical)  # type: ignore
+        mb.setIcon(mb.Critical)
         mb.setWindowTitle(_title)
         font = mb.font()
         font.setBold(True)
@@ -65,11 +65,11 @@ class ShowMessageBox:
                  16384 for Yes, 65536 for No.
         """
         question = message_box.question(
-            None,  # type: ignore
+            None,
             _title,
             _message,
-            message_box.Yes | message_box.No,  # type: ignore
-            message_box.No,  # type: ignore
+            message_box.Yes | message_box.No,
+            message_box.No,
         )
 
         return question

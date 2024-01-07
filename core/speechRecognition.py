@@ -7,7 +7,7 @@
 # pip install requests
 """
 import threading
-import speech_recognition as sr  # type: ignore
+import speech_recognition as sr
 import requests
 
 
