@@ -19,13 +19,13 @@ Uygulama, Python programlama dilinin kullanıldığı bir teknoloji ürünüdür
 
 ##
 ## English
-Turkish Sign Language Dictionary is an application designed to strengthen the communication of hearing or speech impaired individuals and help them learn sign language. However, the application also appeals to a wide range of users, targeting anyone who wants to learn Turkish Sign Language. The application provides a comprehensive dictionary containing 2338 words and phrases defined by the Turkish Language Association[1], allowing users to learn expressions in sign language and create sentences. 
+Turkish Sign Language Dictionary is an application designed to strengthen the communication of hearing or speech impaired individuals and help them learn sign language. However, the application also appeals to a wide range of users, targeting anyone who wants to learn Turkish Sign Language. The application provides a comprehensive dictionary containing 2338 words and phrases defined by the Turkish Language Association, allowing users to learn expressions in sign language and create sentences. 
 
 Enhanced Features:
 
-    • Visually Supported Learning: Each word and phrase is presented enriched with visual explanations along with the definitions of the Turkish Language Association[1], which enables users to learn more effectively.
+    • Visually Supported Learning: Each word and phrase is presented enriched with visual explanations along with the definitions of the Turkish Language Association, which enables users to learn more effectively.
     • Dictation Feature: Thanks to the dictation feature on the application, users can make sentences in sign language, put the learned expressions into practice and thus improve their communication skills.
-    • Word or Phrases Search: The application includes 2338 words and phrases defined by the Turkish Language Association[1]. The words or phrases in this comprehensive dictionary can be easily searched and the desired word or phrase can be easily accessed.
+    • Word or Phrases Search: The application includes 2338 words and phrases defined by the Turkish Language Association. The words or phrases in this comprehensive dictionary can be easily searched and the desired word or phrase can be easily accessed.
     • Making Sentences with Words or Phrases: The app also supports creating sentences easily using the keyboard. In this way, the Turkish Sign Language equivalent can be learned, and input containing words or phrases can be converted into sentences and practiced easily.
 
 Turkish Sign Language Dictionary aims to alleviate the communication difficulties faced by hearing or speech impaired individuals in their daily lives. However, the application also aims to contribute to the general language diversity of the society by appealing to individuals of all ages who want to learn Turkish Sign Language. The application is an important tool to increase general public awareness while encouraging more active participation of hearing or speech impaired individuals in social life. Ensuring that everyone has equal conditions in communication is one of the main missions of the application.
