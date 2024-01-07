@@ -9,7 +9,7 @@
 from business.managers import Managers
 from ui.labelWidget import LabelWidget
 from core.showMessageBox import ShowMessageBox
-from core.speechRecognition import SpeechRecognition  # type: ignore
+from core.speechRecognition import SpeechRecognition
 
 
 class AppManager:
