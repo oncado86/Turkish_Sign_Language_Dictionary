@@ -1,24 +1,34 @@
+
+"""This module provides the LabelWidget class for merging multiple GIF images into a single GIF file.
+
+
 # pip install PyQt5
+# pip install Pillow
+
+@category: UI, Utilities
+"""
+
+
+import os
+from typing import Any
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QMovie
 from PyQt5.QtWidgets import QLabel as label
 from PIL import Image
-from typing import Any
-
-import os
 
 
 current_movie_index: int = 0
 
 
 class LabelWidget:
+    """This class, LabelWidget, provides two methods:
 
-    def __init__(self) -> None:
-        """
-        Purpose: 
-        """
+    - set_gif: Sets a GIF image on a label by creating a QMovie object and starting it. 
+    The GIF is aligned in the center of the label.
 
-    # end default constructor
+    - merge_gifs: Merges multiple GIF images into a single GIF file by opening each image using PIL library, saving them as frames, and then saving the frames as a single GIF file. The file path of the merged GIF is returned.
+    @category: UI, Utilities
+    """
 
     def set_gif(self, _label: label, _img_path: str) -> None:
         """
