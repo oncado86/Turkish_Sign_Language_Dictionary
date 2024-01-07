@@ -1,7 +1,15 @@
-#
-# Turkish Sign Language Dictionary
+<h1 align="center"> Turkish Sign Language Dictionary </h1>
+<div align="left" width="100%">
 
-##
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/oncado86/Turkish_Sign_Language_Dictionary?label=Commit%20Activity&style=plastic">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/oncado86/Turkish_Sign_Language_Dictionary?label=Last%20Commit&style=plastic">
+<img alt="GitHub" src="https://img.shields.io/github/license/oncado86/CSharpAndAngularCamp?label=License&style=plastic">
+
+<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=oncado86.Turkish_Sign_Language_Dictionary&right_color=lightgrey&format=true&left_text=My%20Page%20Visitors">
+</div>
+<br>
+<h2 align="center"><code>Contents</code></h2>
+
 ## Türkçe
 Türk İşaret Dili Sözlüğü, işitme veya konuşma engelli bireylerin iletişimini güçlendirmek ve işaret dilini öğrenmelerine yardımcı olmak amacıyla tasarlanmış bir uygulamadır. Ancak, uygulama aynı zamanda Türk İşaret Dilini öğrenmek isteyen herkesi hedef alarak, geniş bir kullanıcı kitlesine hitap etmektedir. Uygulama, Türk Dil Kurumu'nun tanımladığı 2338 kelime ve deyimi içeren kapsamlı bir sözlük sunarak kullanıcılara işaret dilindeki ifadeleri öğrenme ve cümleler kurma imkanı sağlamaktadır. 
 
