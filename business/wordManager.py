@@ -10,7 +10,7 @@ is_safe: Checks if a given string is safe.
 to_clear_spesials: Removes special characters from a string.
 
 @category: Business, Manager
-@see: Word
+@see: Word, WordDal
 """
 
 import re
@@ -30,7 +30,7 @@ class WordManager():
     to_clear_spesials: Removes special characters from a string.
 
     @category: Business, Manager
-    @see: Word
+    @see: Word, WordDal
     """
 
     def __init__(self) -> None:
@@ -44,7 +44,7 @@ class WordManager():
             None
             
         @category: Business, Manager
-        @see: Word
+        @see: Word, WordDal
         """
         self.__wdal = WordDal()
 
