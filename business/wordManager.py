@@ -1,9 +1,39 @@
-from dataAccess.wordDal import WordDal, Word
+"""The wordManager module contains the WordManager class, which manages Word objects and interacts with a WordDal object. 
+Here's a summary of each class method:
+
+__init__: Initializes the object and sets the __wdal attribute to an instance of WordDal.
+get: Retrieves a Word object by its entity ID.
+get_id: Retrieves the ID for a given name.
+get_all: Retrieves all instances of a specified entity.
+is_there: Checks if a specified entity exists in the system.
+is_safe: Checks if a given string is safe.
+to_clear_spesials: Removes special characters from a string.
+
+@category: Business, Manager
+@see: Word, WordManager
+"""
+
 import re
+from dataAccess.wordDal import WordDal, Word
 
 
 class WordManager():
-    def __init__(self):
+    """The WordManager class manages Word objects and interacts with a WordDal object. 
+    Here's a summary of each class method:
+
+    __init__: Initializes the object and sets the __wdal attribute to an instance of WordDal.
+    get: Retrieves a Word object by its entity ID.
+    get_id: Retrieves the ID for a given name.
+    get_all: Retrieves all instances of a specified entity.
+    is_there: Checks if a specified entity exists in the system.
+    is_safe: Checks if a given string is safe.
+    to_clear_spesials: Removes special characters from a string.
+
+    @category: Business, Manager
+    @see: Word, WordManager
+    """
+
+    def __init__(self) -> None:
         """
         Initializes the object.
 
@@ -12,9 +42,11 @@ class WordManager():
 
         Returns:
             None
+            
+        @category: Business, Manager
+        @see: Word, WordManager
         """
         self.__wdal = WordDal()
-    # end default constructor
 
     def get(self, _entity_id: int) -> Word:
         """
@@ -45,7 +77,8 @@ class WordManager():
         Retrieves all instances of the specified entity.
 
         Args:
-            _entity_name (str): The name of the entity to retrieve instances of. Defaults to an empty string.
+            _entity_name (str): The name of the entity to retrieve instances of. 
+            Defaults to an empty string.
 
         Returns:
             list[Word]: A list of Word objects representing the instances of the specified entity.

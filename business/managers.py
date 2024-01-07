@@ -1,7 +1,22 @@
+"""
+This module contains the Managers class.
+
+@category: Business, Manager
+@see: WordManager
+"""
+
 from business.wordManager import WordManager
 
 
 class Managers:
+    """The Managers class has a default constructor that initializes an instance of the class.     
+    It also has a property method word that returns the WordManager object. 
+    The WordManager object is assigned to the __word_manager attribute of the Managers class.
+
+    @category: Business, Manager
+    @see: WordManager
+    """
+
     def __init__(self) -> None:
         """
         Initializes a new instance of the class.
@@ -11,16 +26,18 @@ class Managers:
 
         Returns:
             None
+
+        @category: Business, Manager
+        @see: WordManager
         """
         self.__word_manager: WordManager = WordManager()
-    # end default constructor
 
     @property
     def word(self) -> WordManager:
         """
-        Returns the WordManager object associated with this instance of the class.
+        Get the WordManager object.
 
-        :return: The WordManager object.
-        :rtype: WordManager
+        Returns:
+            WordManager: The WordManager object.
         """
         return self.__word_manager
