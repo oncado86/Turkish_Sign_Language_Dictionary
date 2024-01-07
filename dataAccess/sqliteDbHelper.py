@@ -1,21 +1,26 @@
-import sqlite3 as sql
+"""
+The sqliteDbHelper module provides a class SqliteDbHelper that provides a property connect that returns a connection object to an SQLite database. 
+The connect method constructs the path to the database file and then uses the sql.connect function to establish a connection.
+
+@category: Data Access Layer, Helper
+"""
+
 import os
+import sqlite3 as sql
 
 
 class SqliteDbHelper:
-    def __init__(self) -> None:
-        """
-        Purpose: 
-        """
-    # end default constructor
+    """The SqliteDbHelper class provides a property connect that returns a connection object to an SQLite database. 
+    The connect method constructs the path to the database file and then uses the sql.connect function to establish a connection.
 
+    @category: Data Access Layer, Helper
+    """
     @property
     def connect(self) -> sql.Connection:
-        """
-        Returns a connection to the SQLite database.
+        """Returns a SQL connection object established by connecting to the database.
 
-        :return: A connection object to the SQLite database.
-        :rtype: sql.Connection
+        Returns:
+            sql.Connection: A SQL Connection object.
         """
         path: str = os.path.join(".", "data", "db", "isaretler.db")
         return sql.connect(path)

@@ -1,16 +1,29 @@
+"""
+This module contains the WordDal class, which is a data access layer that interacts with the database to perform CRUD operations on the kelime table.
+
+@category: Data Access Layer
+@see: SqliteDbHelper, Word
+"""
+
+from typing import Any
 from dataAccess.sqliteDbHelper import SqliteDbHelper as db_helper
 from entity.word import Word
-from typing import Any
 
 
 class WordDal(db_helper):
-    def __init__(self) -> None:
-        """
-        Purpose: Construct
-        Entity fields::
-        id, ad, anlam, img, yapilis
-        """
-    # end default constructor
+    """The WordDal class is a data access layer that interacts with the database to perform CRUD operations on the kelime table. 
+    Here's what each class method does:
+
+    get(_entity_id: int) -> Word: Retrieves a word from the database based on the provided entity ID.
+    get_id(_name: str) -> int: Retrieves the ID associated with a given name.
+    get_all(_entity_name: str = "") -> list[Word]: Retrieves a list of Word objects from the database, optionally filtered by name.
+
+    Args:
+        db_helper (db_helper): SqliteDbHelper object
+
+    @category: Data Access Layer
+    @see: SqliteDbHelper, Word
+    """
 
     def get(self, _entity_id: int) -> Word:
         """
