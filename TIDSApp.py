@@ -14,19 +14,38 @@ from PyQt5.QtWidgets import (
     QApplication as application,
 )
 
-
 from core.appManager import AppManager
 from entity.word import Word
 from ui.tids_ui import Ui_MainWindow as ui_main_window
 
 
 class TIDSApp(ui_main_window, main_window):
-    """Türkçe İşaret Dili Sözlüğü
+    """
+    The TIDSApp class is a Türkçe İşaret Dili Sözlüğü (Turkish Sign Language Dictionary) application. 
+    Here is a summary of what each class method does:
+
+    - __init__(self): Initializes the class and sets up the user interface.
+    - init_ui(self): Initializes the user interface by creating an instance of the ui_main_window class and setting up the UI.
+    - button_funcs(self): Connects the appropriate functions to the buttons in the user interface.
+    - translate_to_voice(self): Translates the text in the txt_cevirici_cumle field to voice.
+    - sentece_spliter(self, sentence: str): Splits a sentence into individual words, including idioms, and returns a list of word names.
+    - translate_sentence(self): Translates a given sentence into images.
+    - list_widget_funs(self): Initializes the list widget functions.
+    - changed_current_list_item(self): Connects the currentRowChanged signal of the lw_ogretici_kelime_listesi QListWidget to the lw_tutarial_page_word_list_item_changed slot of the class.
+    - lw_tutarial_page_word_list_item_changed(self): Handles the event when an item is changed in the lw_tutarial_page_word_list.
+    - line_edit_funcs(self): Initializes the line edit functions.
+    - txt_translate_page_words_translate_changed(self): Translates the words in the page when the translate button is clicked.
+    - txt_tutarial_page_word_search_changed(self): Handles the event when the word search in the tutorial page is changed.
+    - lbl_clear_img(self): Clears the image labels by setting them to a default image.
+    - get_word_list(self): Retrieves a list of Word objects based on a search text.
+    - fill_words(self): Fills the word list.
+    - fill_word_list(self): Fills the word list in the user interface with safe words.
 
     Args:
         ui_main_window (ui_main_window): UI
         main_window (main_window): QT framework
     """
+
     ##################################################################
     # * --------------------------------------------------------------
     # * * * * * * * * * * * *  CONSTRUCTOR  * * * * * * * * * * * * *
@@ -34,14 +53,20 @@ class TIDSApp(ui_main_window, main_window):
 
     def __init__(self) -> None:
         """
-        Purpose: Constructor
+        Initializes the class object.
+
+        Parameters:
+            None
+
+        Returns:
+            None
         """
         super().__init__()
         self.apman: AppManager = AppManager()
         self.init_ui()
 
         self.lbl_clear_img()
-    # end default constructor
+        self.ui.btn_cevirici_cevir.setEnabled(False)
 
     def init_ui(self) -> None:
         """
@@ -49,7 +74,7 @@ class TIDSApp(ui_main_window, main_window):
         the `ui_main_window` class and setting up the UI. 
 
         Parameters:
-            self (object): The current instance of the class.
+            None
 
         Returns:
             None
@@ -77,6 +102,12 @@ class TIDSApp(ui_main_window, main_window):
         """
         Connect the appropriate functions to the buttons in the user interface.
         This function does not take any parameters and does not return anything.
+
+        Parameters:
+            None
+
+        Returns:
+            None
         """
         self.ui.btn_cevirici_cevir.clicked.connect(
             self.translate_sentence
@@ -88,18 +119,40 @@ class TIDSApp(ui_main_window, main_window):
 
     def translate_to_voice(self) -> None:
         """
-        Translates the text in the `txt_cevirici_cumle` field to voice.
+        Translates the text input from the user interface to voice output.
+        This function sets the status bar message to "Dinliyorum..." to indicate that
+        the program is listening. It also disables the "Cevirici Konus" button to
+        prevent multiple translations from occurring simultaneously. The function then
+        processes any pending events in the application's event queue.
+        The function retrieves the input sentence from the text input field in the user
+        interface. It uses the speech recognition module of the "apman" object to
+        recognize the speech input and returns the recognition state and the recognized
+        text.
+        After the speech recognition is completed, the function re-enables the "Cevirici
+        Konus" button in the user interface. If the recognition state is true, the
+        function clears the status bar message, clears the text input field, sets the
+        recognized text as the new input, and calls the "translate_sentence" function.
+        If the recognition state is false, the function displays the error message in the
+        status bar for 3000 milliseconds.
+
+        Parameters:
+            None
 
         Returns:
             None
         """
+
         self.ui.statusbar.showMessage("Dinliyorum...")
+        self.ui.btn_cevirici_konus.setEnabled(False)
         txt_sentence = self.ui.txt_cevirici_cumle
+        txt_sentence.clear()
+        self.lbl_clear_img()
+        application.processEvents()
 
         state, text = self.apman.speech_recognition.recognize_speech()
+        self.ui.btn_cevirici_konus.setEnabled(True)
         if state:
             self.ui.statusbar.clearMessage()
-            txt_sentence.clear()
             txt_sentence.setPlainText(text)
             self.translate_sentence()
         else:
@@ -135,7 +188,7 @@ class TIDSApp(ui_main_window, main_window):
                 if idiom.name in sentece_fix:
                     idiom_name_split: list[str] = idiom.name.split()
                     idiom_name_letter_count: int = len(idiom_name_split)
-                    if words_in_sentence[index:index+idiom_name_letter_count] == idiom_name_split:
+                    if words_in_sentence[index:index + idiom_name_letter_count] == idiom_name_split:
                         word_names.append(idiom.name)
                         idiom_added = True
                         index += idiom_name_letter_count
@@ -197,6 +250,12 @@ class TIDSApp(ui_main_window, main_window):
         List all the available widget functions.
         This function does not take any parameters.
         It does not return anything.
+
+        Parameters:
+            None
+
+        Returns:
+            None
         """
         self.changed_current_list_item()
 
@@ -207,7 +266,7 @@ class TIDSApp(ui_main_window, main_window):
         the slot is called whenever the current row of the QListWidget is changed.
 
         Parameters:
-            self (ClassName): An instance of the class.
+            None
 
         Returns:
             None
@@ -227,7 +286,7 @@ class TIDSApp(ui_main_window, main_window):
         If no valid item is selected, it clears the UI elements.
 
         Parameters:
-            self (MainWindow): The instance of the MainWindow class.
+            None
 
         Returns:
             None
@@ -266,7 +325,7 @@ class TIDSApp(ui_main_window, main_window):
         to their corresponding slots in the UI.
 
         Parameters:
-            self (object): The instance of the class.
+            None
 
         Returns:
             None
@@ -283,11 +342,13 @@ class TIDSApp(ui_main_window, main_window):
 
     def txt_translate_page_words_translate_changed(self) -> None:
         """
-        Translates the words in the page when the translate button is clicked.
+        Translates the words in the page text box and enables the translate button.
 
-        :param self: The current instance of the class.
+        Parameters:
+            None
 
-        :return: None
+        Returns:
+            None
         """
         txt_words = self.ui.txt_cevirici_cumle
         btn_translate = self.ui.btn_cevirici_cevir
@@ -303,7 +364,7 @@ class TIDSApp(ui_main_window, main_window):
         If any exception occurs during the execution of this function, it is caught and ignored.
 
         Parameters:
-            self: The instance of the class.
+            None
 
         Returns:
             None
@@ -320,9 +381,18 @@ class TIDSApp(ui_main_window, main_window):
     # * --------------------------------------------------------------
     def lbl_clear_img(self) -> None:
         """
-        Clears the image labels by setting them to a default image.
+        Clears the images displayed in the labels on the UI.
 
-        :return: None
+        This function clears the images displayed in the labels 'lbl_ogretici_secili_kelime_img' 
+        and 'lbl_cevirici_cumle_img' on the UI. It achieves this by setting the gif paths of the 
+        labels to a default gif path. The default gif path is determined by joining the current 
+        directory, the 'data' directory, the 'img' directory, and the 'loop.gif' file.
+
+        Parameters:
+            None
+
+        Returns:
+            None: This function does not return any value.
         """
         path: str = os.path.join(".", "data", "img", "loop.gif")
         lbl_ogretici_secili_kelime_img = self.ui.lbl_ogretici_secili_kelime_img
@@ -336,9 +406,13 @@ class TIDSApp(ui_main_window, main_window):
     # * --------------------------------------------------------------
     def get_word_list(self) -> list[Word]:
         """
-        Retrieves a list of Word objects based on a search text.
+        Retrieves a list of `Word` objects based on a search text.
 
-        :return: A list of Word objects.
+        Parameters:
+            None.
+
+        Returns:
+            list[Word]: A list of `Word` objects that match the search text.
         """
         search_text: str = self.ui.le_ogretici_kelime_ara.text().lower()
         return self.apman.managers.word.get_all(search_text)
@@ -350,10 +424,16 @@ class TIDSApp(ui_main_window, main_window):
     # WORD FILL FUNCTION
     def fill_words(self) -> None:
         """
-        Fills the word list.
+        Fill the words in the word list.
 
-        :param self: The instance of the class.
-        :return: None
+        This method is responsible for filling the word list. It does not take any parameters
+        and does not return any values.
+
+        Parameters:
+            None
+
+        Returns:
+            None
         """
         self.fill_word_list()
 
@@ -385,6 +465,7 @@ class TIDSApp(ui_main_window, main_window):
 
 if __name__ == "__main__":
     import sys
+
     app = application([])
     win = TIDSApp()
     win.show()
