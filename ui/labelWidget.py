@@ -1,4 +1,3 @@
-
 """This module provides the LabelWidget class for merging multiple GIF images into a single GIF file.
 
 
