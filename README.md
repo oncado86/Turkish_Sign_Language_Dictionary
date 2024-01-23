@@ -3,7 +3,7 @@
 
 <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/oncado86/Turkish_Sign_Language_Dictionary?label=Commit%20Activity&style=plastic">
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/oncado86/Turkish_Sign_Language_Dictionary?label=Last%20Commit&style=plastic">
-<img alt="GitHub" src="https://img.shields.io/github/license/oncado86/CSharpAndAngularCamp?label=License&style=plastic">
+<img alt="GitHub" src="https://img.shields.io/github/license/oncado86/Turkish_Sign_Language_Dictionary?label=License&style=plastic">
 
 <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=oncado86.Turkish_Sign_Language_Dictionary&right_color=lightgrey&format=true&left_text=My%20Page%20Visitors">
 </div>
